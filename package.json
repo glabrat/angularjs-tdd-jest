@@ -4,6 +4,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "dev": "npm start -- --watch",
+    "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
     "build": "webpack",
     "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report"
