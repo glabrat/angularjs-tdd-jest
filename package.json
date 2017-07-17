@@ -2,7 +2,7 @@
   "name": "angularjs-tdd-jest",
   "version": "0.1.0",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --hot",
     "dev": "npm start -- --watch",
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
