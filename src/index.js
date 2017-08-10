@@ -1,10 +1,10 @@
 import angular from 'angular';
-import { routes } from './routes'
+import { config } from './config'
 import { TodoListComponent } from "./components/todoList.component"
 
 angular
-    .module('App', ['ngRoute'])
-    .config(routes)
+    .module('App', ['ngRoute', 'ngRedux'])
+    .config(config)
     .component('todoList', TodoListComponent)
 
 

@@ -1,4 +1,9 @@
 <div class="todo-list">
+
+    <label for="new-todo">Todo Label</label>
+    <input id="new-todo" type="text" ng-model="$ctrl.newTodo.name">
+    <button ng-click="$ctrl.addTodo($ctrl.newTodo)">Add</button>
+
     <div ng-repeat="todo in $ctrl.todosList track by $index">
         <label>
             <input type="checkbox" ng-model="todo.completed"> {{todo.name}}

@@ -1,6 +1,10 @@
-import 'angular-route';
+import 'angular-route'
+import 'ng-redux'
+import reducer from './reducer'
 
-export function routes($routeProvider, $locationProvider) {
+export function config($ngReduxProvider, $routeProvider, $locationProvider) {
+    $ngReduxProvider.createStoreWith(reducer, [])
+
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false,
