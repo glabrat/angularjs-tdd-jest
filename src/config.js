@@ -8,7 +8,7 @@ export const ngModules = [
 ]
 
 export function config($ngReduxProvider, $routeProvider, $locationProvider) {
-    $ngReduxProvider.createStoreWith(reducer, [])
+    $ngReduxProvider.createStoreWith(reducer)
 
     $locationProvider.html5Mode({
         enabled: true,

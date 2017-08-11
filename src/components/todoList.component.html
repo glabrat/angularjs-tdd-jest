@@ -4,11 +4,11 @@
     <input id="new-todo" type="text" ng-model="$ctrl.newTodo.name">
     <button ng-click="$ctrl.addTodo($ctrl.newTodo)">Add</button>
 
-    <pre>
+    <!-- <pre>
         {{ $ctrl.todosList | json }}
-    </pre>
+    </pre> -->
 
-    <div ng-repeat="todo in $ctrl.todosList track by $index">
+    <div ng-repeat="todo in ::$ctrl.todosList track by $index">
         <label>
             <input type="checkbox"
                    ng-checked="::todo.completed"
