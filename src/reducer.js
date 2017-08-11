@@ -1,4 +1,4 @@
-const initialState = {
+const INITIAL_STATE = {
   todos: [
           {
               name: "Learn Programming using component based approach",
@@ -23,19 +23,33 @@ const initialState = {
   ]
 }
 
-export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case "ADD_TODO":
-      return {
-        ...state,
-        todos: [ ...state.todos, action.todo]
-      }
-    case "DELETE_TODO":
-      return {
-        ...state,
-        todos: state.todos.filter((todo, index) => index !== action.index )
-      }
-    default:
-      return state
-  }
+const toggleSelectedTodo = (todos, selectedIndex) => {
+    return todos.map((todo, index) => (
+        { ...todo, completed: index === selectedIndex ? !todo.completed : todo.completed  }
+    ))
+}
+const deleteTodo = (todos, selectedIndex) => {
+    return todos.filter((todo, index) => index !== selectedIndex )
+}
+
+export default function reducer(state = INITIAL_STATE, action) {
+    switch (action.type) {
+        case "ADD_TODO":
+            return {
+                ...state,
+                todos: [ ...state.todos, action.todo]
+            }
+        case "TOGGLE_SELECTED":
+            return {
+                ...state,
+                todos: toggleSelectedTodo(state.todos, action.index)
+            }
+        case "DELETE_TODO":
+            return {
+                ...state,
+                todos: deleteTodo(state.todos, action.index)
+            }
+        default:
+              return state
+    }
 }

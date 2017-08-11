@@ -1,5 +1,5 @@
 {
-  "name": "angularjs-tdd-jest",
+  "name": "angularjs-jest-redux-todolist",
   "version": "0.1.0",
   "scripts": {
     "start": "webpack-dev-server --hot",

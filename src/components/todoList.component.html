@@ -4,9 +4,16 @@
     <input id="new-todo" type="text" ng-model="$ctrl.newTodo.name">
     <button ng-click="$ctrl.addTodo($ctrl.newTodo)">Add</button>
 
+    <pre>
+        {{ $ctrl.todosList | json }}
+    </pre>
+
     <div ng-repeat="todo in $ctrl.todosList track by $index">
         <label>
-            <input type="checkbox" ng-model="todo.completed"> {{todo.name}}
+            <input type="checkbox"
+                   ng-checked="::todo.completed"
+                   ng-click="$ctrl.toggleSelected($index)">
+            <span ng-bind="::todo.name"></span>
             <button ng-click="$ctrl.deleteTodo($index)">x</button>
         </label>
     </div>
