@@ -1,31 +1,35 @@
 const INITIAL_STATE = {
   todos: [
-          {
-              name: "Learn Programming using component based approach",
-              completed: true
-          },
-          {
-              name: "Learn Machine Learning",
-              completed: false
-          },
-          {
-              name: "Finish Medium article",
-              completed: true
-          },
-          {
-              name: "Learn to play Jazz music",
-              completed: false
-          },
-          {
-              name: "Build a experimental app using google A.I.",
-              completed: false
-          }
+      {
+          name: "Learn Programming using component based approach",
+          completed: true
+      },
+      {
+          name: "Learn Machine Learning",
+          completed: false
+      },
+      {
+          name: "Get experience using immutable Programming approach",
+          completed: false
+      },
+      {
+          name: "Finish Medium article",
+          completed: true
+      },
+      {
+          name: "Learn to play Jazz music",
+          completed: false
+      },
+      {
+          name: "Build a experimental app using google A.I.",
+          completed: false
+      }
   ]
 }
 
 const toggleSelectedTodo = (todos, selectedIndex) => {
     return todos.map((todo, index) => (
-        { ...todo, completed: index === selectedIndex ? !todo.completed : todo.completed  }
+        index === selectedIndex ? { ...todo, completed: !todo.completed } : todo
     ))
 }
 const deleteTodo = (todos, selectedIndex) => {
