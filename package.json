@@ -1,6 +1,7 @@
 {
   "name": "angularjs-tdd-jest",
   "version": "0.1.0",
+  "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
   "scripts": {
     "start": "webpack-dev-server --hot",
     "dev": "npm start -- --watch",
