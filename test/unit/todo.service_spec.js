@@ -22,22 +22,24 @@ describe("TodoService", () => {
     it("Should be response a data object from response on getTodos method", async () => {
         const responseMock = {
             status: 200,
-            data: [
-                {
-                    name: "Learn Programming using component based approach",
-                    completed: true
-                },
-                {
-                    name: "Learn Machine Learning",
-                    completed: false
-                }
-            ]
+            data: {
+                todos: [
+                    {
+                        name: "Learn Programming using component based approach",
+                        completed: true
+                    },
+                    {
+                        name: "Learn Machine Learning",
+                        completed: false
+                    }
+                ]
+            }
         }
         jest.spyOn(TodoServiceInstance.http, 'get').mockReturnValueOnce(Promise.resolve(responseMock))
 
         const serviceResponse = await TodoServiceInstance.getTodos()
 
-        expect(serviceResponse).toEqual(responseMock.data)
+        expect(serviceResponse).toEqual(responseMock.data.todos)
     })
 
 })
