@@ -1,14 +1,18 @@
-import 'angular-route';
+import '@uirouter/angularjs'
 
-export function routes($routeProvider, $locationProvider) {
+export function routes($stateProvider, $locationProvider) {
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false,
         rewriteLinks: true,
-    });
+    })
 
-    $routeProvider
-        .when('/', {
-            template: '<todo-list></todo-list>'
+    $stateProvider
+        .state("home", {
+            url: "/",
+            component: "todoList",
+            resolve: {
+                todosList: TodoService => TodoService.getTodos()
+            }
         })
 }
