@@ -6,6 +6,7 @@ describe("TodoService", () => {
     beforeAll(() => {
         angular
             .module("Test", [])
+            .constant("BASE_URL", "http://localhost:5000/api")
             .service("TodoService", TodoService)
     })
 
