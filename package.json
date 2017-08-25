@@ -8,6 +8,7 @@
     "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
+    "test-debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
     "build": "webpack",
     "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report"
   },
@@ -33,7 +34,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.4.0"
   },
   "jest": {
     "transform": {
