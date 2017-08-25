@@ -22,19 +22,22 @@ describe("TodoListComponent rendering and interaction on '/' base path", () => {
     beforeEach(angular.mock.module("Test"))
 
     beforeEach(inject(($rootScope, $compile, $state, $httpBackend) => {
-        //build the scene
-        //1st render the root element of scene: We needs a router view for load the base path
+        //Build the scene
+
+        //1st let's create a fake server for intercept the http requests and fake the responses
+        fakeServer = new FakeServer($httpBackend)
+        fakeServer.register({
+            get  : [ "todos" ]
+        })
+
+        //2nd render the root element of scene: We needs a router view for load the base path
         let scope = $rootScope.$new()
         componentDOMelement = angular.element("<div ui-view></div>")
 
         $compile(componentDOMelement)(scope)
         scope.$digest()
+
         document.body.appendChild(componentDOMelement[0])
-        //2nd let's create a fake server for intercept the http requests and fake the responses
-        fakeServer = new FakeServer($httpBackend)
-        fakeServer.register({
-            get  : [ "todos" ]
-        })
 
         //3rd Let's generate the basic scenario: Go at home state ("/" path)
         $state.go("home")

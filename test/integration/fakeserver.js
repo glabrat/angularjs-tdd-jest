@@ -1,10 +1,11 @@
 export class FakeServer{
-    constructor(httpBackend){
+    constructor(httpBackend, stubsPath){
         this.httpBackend = httpBackend
+        this.stubsPath = stubsPath || `${__dirname}/../../stubs`
     }
     loadMockFile(filename){
         try {
-            return require(`${__dirname}/../../stubs/${filename}`)
+            return require(`${this.stubsPath}/${filename}`)
         } catch(e) {
             console.log(e.message)
         }
