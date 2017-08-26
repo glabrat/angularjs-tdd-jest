@@ -44,10 +44,10 @@
     "testURL": "http://localhost:3000",
     "setupTestFrameworkScriptFile": "<rootDir>/test/jest.init.js",
     "testMatch": [
-        "<rootDir>/test/**/*_spec.js"
+      "<rootDir>/test/**/*_spec.js"
     ],
     "collectCoverageFrom": [
-        "<rootDir>/src/**/*.js"
+      "src/**/*.js"
     ],
     "coverageThreshold": {
       "global": {
