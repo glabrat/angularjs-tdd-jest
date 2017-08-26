@@ -33,7 +33,6 @@ class TodoListController {
         this.todosList.splice(index, 1)
     }
 }
-
 export const TodoListComponent = {
     template: TodoListTemplate,
     controller: TodoListController,

@@ -2,12 +2,8 @@ import { routes } from "routes"
 import { TodoListComponent } from "components/todoList.component"
 import { TodoService } from "services/todo.service"
 
-const { FakeServer } = require(`${__dirname}/fakeserver`)
-
 describe("TodoListComponent rendering and interaction on '/' base path", () => {
     let componentDOMelement
-    let stateService
-    let fakeServer
 
     beforeAll(() => {
         angular
@@ -21,32 +17,31 @@ describe("TodoListComponent rendering and interaction on '/' base path", () => {
     })
     beforeEach(angular.mock.module("Test"))
 
-    beforeEach(inject(($rootScope, $compile, $state, $httpBackend) => {
+    beforeEach(inject(($rootScope, $compile, $location, $httpBackend) => {
         //Build the scene
-
         //1st let's create a fake server for intercept the http requests and fake the responses
-        fakeServer = new FakeServer($httpBackend)
-        fakeServer.register({
-            get  : [ "todos" ]
-        })
+        const todosResponse = require(`${__dirname}/../../stubs/todos_get.json`)
+        $httpBackend
+            .whenGET(/.+\/todos/)
+            .respond((method, url, data, headers, params) => {
+                return [200, todosResponse]
+            })
 
         //2nd render the root element of scene: We needs a router view for load the base path
         let scope = $rootScope.$new()
-        componentDOMelement = angular.element("<div ui-view></div>")
-
-        $compile(componentDOMelement)(scope)
-        scope.$digest()
+        componentDOMelement = angular.element("<div><ui-view></ui-view></div>")
 
         document.body.appendChild(componentDOMelement[0])
+        $compile(componentDOMelement)(scope)
 
-        //3rd Let's generate the basic scenario: Go at home state ("/" path)
-        $state.go("home")
-        $rootScope.$digest()
+        $location.url("/")
+
         $httpBackend.flush()
+        $rootScope.$digest()
     }))
 
-    it("Should be render a list", () => {
-        console.log("HTML rendered")
+    it("Should be render a list", async () => {
         console.log(document.querySelectorAll("html")[0].outerHTML)
+        expect(true).toBe(true)
     })
 })
