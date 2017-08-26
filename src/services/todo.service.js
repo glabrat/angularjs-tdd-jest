@@ -3,8 +3,7 @@ export class TodoService {
         this.http = $http;
         this.url = `${BASE_URL}/todos`
     }
-    async getTodos() {
-        const apiResponse = await this.http.get(this.url)
-        return apiResponse.data.todos
+    getTodos() {
+        return this.http.get(this.url).then(res => res.data.todos)
     }
 }
