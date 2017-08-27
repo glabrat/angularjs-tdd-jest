@@ -42,6 +42,11 @@ describe("TodoListComponent rendering and interaction on '/' base path", () => {
         //Because in the root location exists a http resolution involved
         //(the resolve configuration for the "home" state)
         $httpBackend.flush()
+
+        //Show the html generated
+        console.log(document.querySelectorAll("body")[0].outerHTML)
+
+
     }))
 
     //After each test clean the ui-view
