@@ -57,21 +57,21 @@ describe("TodoListComponent rendering and interaction on '/' base path", () => {
     it("Should be delete a todo when a todo item was clicked on the delete button", () => {
         let todosHTMLNodeList = treeDOMBody.querySelectorAll(".todo-item")
         let targetTodo = todosHTMLNodeList[3]
-        let todosInitialLenth = todosHTMLNodeList.length
+        let todosInitialLength = todosHTMLNodeList.length
         let todosListNewLength
 
         targetTodo.querySelectorAll(".btn-delete-todo")[0].click()
         todosHTMLNodeList = treeDOMBody.querySelectorAll(".todo-item")
         todosListNewLength = todosHTMLNodeList.length
 
-        expect(todosListNewLength).toEqual(todosInitialLenth - 1)
+        expect(todosListNewLength).toEqual(todosInitialLength - 1)
 
         targetTodo = todosHTMLNodeList[0]
         targetTodo.querySelectorAll(".btn-delete-todo")[0].click()
         todosHTMLNodeList = treeDOMBody.querySelectorAll(".todo-item")
         todosListNewLength = todosHTMLNodeList.length
 
-        expect(todosListNewLength).toEqual(todosInitialLenth - 2)
+        expect(todosListNewLength).toEqual(todosInitialLength - 2)
     })
     it("Should be toggle a todo item if the checkbox it's pressed", () => {
         let todosHTMLNodeList = treeDOMBody.querySelectorAll(".todo-item")
