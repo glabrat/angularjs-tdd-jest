@@ -3,19 +3,23 @@
   "version": "0.1.0",
   "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
   "scripts": {
-    "start": "npm run stubs | webpack-dev-server --hot",
-    "dev": "npm start -- --watch",
+    "start": "npm run stubs | webpack-dev-server",
+    "dev": "npm start -- --hot --watch",
     "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
     "test-debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
+    "test-functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
     "build": "webpack",
     "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report"
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.6",
     "angular": "^1.5.6",
-    "babel-polyfill": "^6.26.0"
+    "babel-polyfill": "^6.26.0",
+    "chromedriver": "^2.31.0",
+    "cucumber": "^3.0.0",
+    "selenium-webdriver": "^3.5.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.4",
