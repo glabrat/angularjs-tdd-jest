@@ -7,7 +7,7 @@ module.exports = {
       './src/index.js'
     ],
     output: {
-        path: 'tmp',
+        path: 'dist',
         filename: 'index.bundle.js'
     },
     module: {
