@@ -47,7 +47,7 @@
       "<rootDir>/test/**/*_spec.js"
     ],
     "collectCoverageFrom": [
-      "<rootDir>/src/**/*.js"
+      "src/**/*.js"
     ],
     "coverageThreshold": {
       "global": {
