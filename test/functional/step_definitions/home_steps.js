@@ -1,4 +1,4 @@
-import { expect } from "jest-jasmine2"
+import expect from "jest-matchers"
 import { defineSupportCode } from "cucumber"
 import { By, Key } from "selenium-webdriver"
 
@@ -16,7 +16,7 @@ defineSupportCode( ({ Given, When, Then }) => {
         this.driver
             .getTitle()
             .then((title) => {
-                expect(title).to.equals(expected_title)
+                expect(title).toEqual(expected_title)
             })
     })
 })

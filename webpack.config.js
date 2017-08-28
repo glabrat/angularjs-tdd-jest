@@ -1,6 +1,5 @@
 module.exports = {
     entry: [
-      'webpack/hot/dev-server',
       'core-js/shim',
       'babel-polyfill',
       'angular',
@@ -26,7 +25,6 @@ module.exports = {
         filename: "index.bundle.js",
         contentBase: "./src",
         port: 3000,
-        open: true,
         watch: true,
         publicPath: "/",
         historyApiFallback: true,
