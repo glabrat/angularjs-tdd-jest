@@ -3,7 +3,6 @@ import { defineSupportCode } from "cucumber"
 import { By, Key } from "selenium-webdriver"
 
 defineSupportCode( ({ Given, When, Then }) => {
-
     Given(/^que estoy en "(.*)"$/, function(url) {
         this.driver.get(url)
     })
