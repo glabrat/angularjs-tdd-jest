@@ -10,7 +10,7 @@
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
     "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
     "test:functional-ci": "cross-env NODE_ENV=staging npm run test:functional",
-    "test-debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
+    "test:debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
     "check-coverage": "sh -c \"npm test; http-server -so -c-1 -p 9000 coverage/lcov-report\""
   },
   "dependencies": {
