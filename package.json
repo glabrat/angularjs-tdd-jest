@@ -1,11 +1,10 @@
 {
   "name": "angularjs-tdd-jest",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
   "scripts": {
     "build": "webpack",
     "start": "sh -c \"npm run stubs & webpack-dev-server\"",
-    "dev": "npm start -- --open",
     "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
