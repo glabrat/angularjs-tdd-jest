@@ -11,4 +11,4 @@ jobs:
       script: npm test
     - stage: functional test
       before_script: npm start & sleep 7
-      script: npm run test:functional-ci
+      script: npm run test:functional
