@@ -30,6 +30,7 @@
     "cross-env": "^5.0.0",
     "cucumber": "^3.0.0",
     "html-loader": "^0.5.1",
+    "html-loader-jest": "github:gpincheiraa/html-loader-jest",
     "http-server": "^0.10.0",
     "jest-cli": "^20.0.1",
     "selenium-webdriver": "^3.5.0",
@@ -43,7 +44,7 @@
   "jest": {
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "^.+\\.html$": "<rootDir>/test/utils/htmlLoader.js"
+      "^.+\\.html$": "html-loader-jest"
     },
     "testURL": "http://localhost:3000",
     "setupTestFrameworkScriptFile": "<rootDir>/test/jest.init.js",
