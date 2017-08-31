@@ -23,7 +23,8 @@ function beforeScenarioHook() {
 function afterScenarioHook() {
     return this.driver.quit()
 }
-defineSupportCode(({ setWorldConstructor, Before, After }) => {
+defineSupportCode(({ setWorldConstructor, setDefaultTimeout, Before, After }) => {
+  setDefaultTimeout(10 * 1000)
   setWorldConstructor(CustomWorld)
   Before(beforeScenarioHook)
   After(afterScenarioHook)
