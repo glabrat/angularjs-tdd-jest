@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
   "scripts": {
-    "start": "npm run stubs & webpack-dev-server",
+    "build": "webpack",
+    "start": "sh -c \"npm run stubs & webpack-dev-server\"",
     "dev": "npm start -- --open",
     "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
@@ -11,8 +12,7 @@
     "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
     "test:functional-ci": "cross-env NODE_ENV=staging npm run test:functional",
     "test-debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
-    "build": "webpack",
-    "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report"
+    "check-coverage": "sh -c \"npm test; http-server -so -c-1 -p 9000 coverage/lcov-report\""
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.6",
@@ -52,6 +52,7 @@
       "<rootDir>/test/**/*_spec.js"
     ],
     "collectCoverageFrom": [
+      "!src/**/index.js",
       "src/**/*.js"
     ],
     "coverageThreshold": {
