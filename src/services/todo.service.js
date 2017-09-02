@@ -1,9 +1,9 @@
 export class TodoService {
-    constructor($http) {
+    constructor($http, BASE_URL) {
         this.http = $http;
+        this.url = `${BASE_URL}/todos`
     }
-    async getTodos() {
-        const apiResponse = await this.http.get("http://localhost:3000/api/todos")
-        return apiResponse.data
+    getTodos() {
+        return this.http.get(this.url).then(res => res.data.todos)
     }
 }

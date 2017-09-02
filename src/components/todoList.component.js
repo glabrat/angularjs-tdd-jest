@@ -1,27 +1,6 @@
-class TodoListController {
-    todosList = [
-        {
-            name: "Learn Programming using component based approach",
-            completed: true
-        },
-        {
-            name: "Learn Machine Learning",
-            completed: false
-        },
-        {
-            name: "Finish Medium article",
-            completed: true
-        },
-        {
-            name: "Learn to play Jazz music",
-            completed: false
-        },
-        {
-            name: "Build a experimental app using google A.I.",
-            completed: false
-        }
-    ]
+import TodoListTemplate from "./todoList.component.html"
 
+class TodoListController {
     addTodo(todo){
         this.todosList.push(todo)
     }
@@ -32,8 +11,10 @@ class TodoListController {
         this.todosList.splice(index, 1)
     }
 }
-
 export const TodoListComponent = {
-    templateUrl: '/components/todoList.component.html',
-    controller: TodoListController
+    template: TodoListTemplate,
+    controller: TodoListController,
+    bindings: {
+        todosList: '<'
+    }
 }

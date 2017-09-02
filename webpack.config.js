@@ -1,12 +1,12 @@
 module.exports = {
     entry: [
-      'webpack/hot/dev-server',
       'core-js/shim',
+      'babel-polyfill',
       'angular',
       './src/index.js'
     ],
     output: {
-        path: 'tmp',
+        path: 'dist',
         filename: 'index.bundle.js'
     },
     module: {
@@ -14,6 +14,7 @@ module.exports = {
         { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
         { test: /\.css$/, loader: 'style-loader!css-loader' },
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+        { test: /\.(html)$/, loader: 'html-loader' },
         { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
         { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
         { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }]
@@ -24,7 +25,6 @@ module.exports = {
         filename: "index.bundle.js",
         contentBase: "./src",
         port: 3000,
-        open: true,
         watch: true,
         publicPath: "/",
         historyApiFallback: true,

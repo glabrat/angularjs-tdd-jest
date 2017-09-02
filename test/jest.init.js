@@ -1,3 +1,3 @@
 import 'angular'
-import 'angular-route'
+import '@uirouter/angularjs'
 import 'angular-mocks'

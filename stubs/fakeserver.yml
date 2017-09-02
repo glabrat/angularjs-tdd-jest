@@ -1,0 +1,7 @@
+- request:
+    url: ^/api/todos
+  response:
+    headers:
+        content-type: application/json
+    status: 200
+    file: todos_get.json
