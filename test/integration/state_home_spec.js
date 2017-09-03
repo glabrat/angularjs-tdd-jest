@@ -1,7 +1,5 @@
-import 'angular'
-import '@uirouter/angularjs'
-import 'angular-mocks'
 import "index.js"
+import "angular-mocks"
 
 describe("TodoListComponent rendering and interaction on '/' base path", () => {
     const todosHttpResponse = require(`${__dirname}/../../stubs/todos_get.json`)
