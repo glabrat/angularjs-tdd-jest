@@ -6,11 +6,11 @@ module.exports = {
       "./src/index.js"
     ],
     output: {
-        path: "dist",
+        path: __dirname + "/dist",
         filename: "index.bundle.js"
     },
     module: {
-        loaders: [
+        rules: [
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
             { test: /\.css$/, loader: "style-loader!css-loader" },
             { test: /\.html$/, loader: "html-loader" }
@@ -22,6 +22,8 @@ module.exports = {
         contentBase: "./src",
         port: 3000,
         publicPath: "/",
-        stats: "normal"
+        stats: {
+            colors: true
+        }
     }
 };
