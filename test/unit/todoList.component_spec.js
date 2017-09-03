@@ -1,19 +1,11 @@
-import { TodoListComponent } from "components/todoList.component"
+import { TodoListController } from "components/todoList.component"
 
-describe("TodoListComponent", () => {
+describe("TodoListController", () => {
     let controller
 
-    beforeAll(() => {
-        angular
-            .module("Test", [])
-            .component("todoList", TodoListComponent)
+    beforeEach(() => {
+        controller = new TodoListController()
     })
-
-    beforeEach(angular.mock.module("Test"))
-
-    beforeEach(inject(($componentController) => {
-        controller = $componentController("todoList")
-    }))
 
     it("Should have a defined controller", () => {
         expect(controller).toBeDefined()
