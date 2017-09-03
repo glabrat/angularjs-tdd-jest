@@ -3,7 +3,6 @@
   "version": "0.3.0",
   "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
   "scripts": {
-    "build": "webpack",
     "start": "sh -c \"npm run stubs & webpack-dev-server\"",
     "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
@@ -12,6 +11,31 @@
     "test:functional-ci": "cross-env NODE_ENV=staging npm run test:functional",
     "test:debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
     "check-coverage": "sh -c \"npm test; http-server -so -c-1 -p 9000 coverage/lcov-report\""
+  },
+  "engines": {
+    "node": ">=8.4.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.html$": "html-loader-jest"
+    },
+    "testURL": "http://localhost:3000",
+    "testMatch": [
+      "<rootDir>/test/**/*_spec.js"
+    ],
+    "collectCoverageFrom": [
+      "!src/**/index.js",
+      "src/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.6",
@@ -37,31 +61,5 @@
     "stubby": "^4.0.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
-  },
-  "engines": {
-    "node": ">=8.4.0"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "^.+\\.html$": "html-loader-jest"
-    },
-    "testURL": "http://localhost:3000",
-    "setupTestFrameworkScriptFile": "<rootDir>/test/jest.init.js",
-    "testMatch": [
-      "<rootDir>/test/**/*_spec.js"
-    ],
-    "collectCoverageFrom": [
-      "!src/**/index.js",
-      "src/**/*.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
-    }
   }
 }

@@ -1,3 +1,6 @@
+import 'angular'
+import '@uirouter/angularjs'
+import 'angular-mocks'
 import "index.js"
 
 describe("TodoListComponent rendering and interaction on '/' base path", () => {
