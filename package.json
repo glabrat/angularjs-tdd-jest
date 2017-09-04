@@ -3,7 +3,6 @@
   "version": "0.3.0",
   "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
   "scripts": {
-    "build": "webpack",
     "start": "sh -c \"npm run stubs & webpack-dev-server\"",
     "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
@@ -11,32 +10,8 @@
     "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
     "test:functional-ci": "cross-env NODE_ENV=staging npm run test:functional",
     "test:debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
-    "check-coverage": "sh -c \"npm test; http-server -so -c-1 -p 9000 coverage/lcov-report\""
-  },
-  "dependencies": {
-    "@uirouter/angularjs": "^1.0.6",
-    "angular": "^1.5.6"
-  },
-  "devDependencies": {
-    "angular-mocks": "^1.6.4",
-    "babel-cli": "^6.7.7",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-transform-class-properties": "^6.9.1",
-    "babel-plugin-transform-regenerator": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "chromedriver": "^2.31.0",
-    "cross-env": "^5.0.0",
-    "cucumber": "^3.0.0",
-    "html-loader": "^0.5.1",
-    "html-loader-jest": "github:gpincheiraa/html-loader-jest",
-    "http-server": "^0.10.0",
-    "jest-cli": "^20.0.1",
-    "selenium-webdriver": "^3.5.0",
-    "stubby": "^4.0.0",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "build": "webpack",
+    "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report"
   },
   "engines": {
     "node": ">=8.4.0"
@@ -47,7 +22,6 @@
       "^.+\\.html$": "html-loader-jest"
     },
     "testURL": "http://localhost:3000",
-    "setupTestFrameworkScriptFile": "<rootDir>/test/jest.init.js",
     "testMatch": [
       "<rootDir>/test/**/*_spec.js"
     ],
@@ -63,5 +37,30 @@
         "statements": 90
       }
     }
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.6",
+    "angular": "^1.5.6"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.4",
+    "babel-cli": "^6.7.7",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.9.1",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "chromedriver": "^2.31.0",
+    "cross-env": "^5.0.0",
+    "cucumber": "^3.0.0",
+    "html-loader": "^0.5.1",
+    "html-loader-jest": "github:gpincheiraa/html-loader-jest",
+    "http-server": "^0.10.0",
+    "jest-cli": "^20.0.1",
+    "selenium-webdriver": "^3.5.0",
+    "stubby": "^4.0.0",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.7.1"
   }
 }
