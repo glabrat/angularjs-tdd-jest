@@ -1,8 +1,5 @@
 module.exports = {
     entry: [
-      "core-js/shim",
-      "babel-polyfill",
-      "angular",
       "./src/index.js"
     ],
     output: {
