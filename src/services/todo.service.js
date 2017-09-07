@@ -6,5 +6,6 @@ export class TodoService {
     getTodos() {
         return this.http.get(this.url)
             .then(res => res.data.todos)
+            .catch(error => error.message)
     }
 }
