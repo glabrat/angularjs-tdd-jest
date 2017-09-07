@@ -37,4 +37,15 @@ describe("TodoService", () => {
 
         expect(serviceResponse).toEqual(responseMock.data.todos)
     })
+
+    it("Should be thrown an error message when the response fail", async () => {
+        const errorMessage = "ServiceError"
+        TodoServiceInstance.http.get
+            .mockImplementation(() => Promise.reject(new Error(errorMessage)))
+
+        const serviceResponse = await TodoServiceInstance.getTodos()
+
+        expect(serviceResponse).toEqual(errorMessage)
+    })
+
 })
