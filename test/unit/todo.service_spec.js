@@ -19,11 +19,10 @@ describe("TodoService", () => {
     }
     beforeEach(() => {
         const $http = {
-            get(){
-                return Promise.resolve(responseMock)
-            }
+            get: jest.fn()
         }
-        TodoServiceInstance = new TodoService($http)
+        const BASE_URL = "http://localhost:5000/todos"
+        TodoServiceInstance = new TodoService($http, BASE_URL)
     })
 
     it("Should have defined", () => {
@@ -31,7 +30,11 @@ describe("TodoService", () => {
     })
 
     it("Should be response a data object from response on getTodos method", async () => {
+        TodoServiceInstance.http.get
+            .mockImplementation(() => Promise.resolve(responseMock))
+
         const serviceResponse = await TodoServiceInstance.getTodos()
+
         expect(serviceResponse).toEqual(responseMock.data.todos)
     })
 })
