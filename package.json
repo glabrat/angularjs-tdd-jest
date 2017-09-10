@@ -3,15 +3,16 @@
   "version": "0.3.0",
   "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
   "scripts": {
-    "start": "sh -c \"npm run stubs & webpack-dev-server\"",
+    "build": "webpack",
+    "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report",
+    "server": "webpack-dev-server",
+    "start": "npm-run-all -p stubs server",
     "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
-    "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
-    "test:functional-ci": "cross-env NODE_ENV=staging npm run test:functional",
     "test:debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
-    "build": "webpack",
-    "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report"
+    "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
+    "test:functional-standalone": "npm-run-all -r -p start test:functional"
   },
   "engines": {
     "node": ">=8.4.0"
@@ -58,6 +59,7 @@
     "html-loader-jest": "github:gpincheiraa/html-loader-jest",
     "http-server": "^0.10.0",
     "jest-cli": "^20.0.1",
+    "npm-run-all": "^4.1.1",
     "selenium-webdriver": "^3.5.0",
     "stubby": "^4.0.0",
     "webpack": "^3.0.0",
