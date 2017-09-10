@@ -15,6 +15,6 @@ export const TodoListComponent = {
     template: TodoListTemplate,
     controller: TodoListController,
     bindings: {
-        todosList: '<'
+        todosList: "<"
     }
 }
