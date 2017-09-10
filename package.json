@@ -11,7 +11,6 @@
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
     "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
-    "test:functional-ci": "cross-env NODE_ENV=staging npm run test:functional",
     "test:functional-standalone": "npm-run-all -r -p start test:functional" ,
     "test:debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i"
   },
