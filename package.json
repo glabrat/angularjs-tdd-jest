@@ -5,14 +5,15 @@
   "scripts": {
     "start": "sh -c \"npm run stubs & webpack-dev-server\"",
     "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
+    "run-all": "npm-run-all start stubs",
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
     "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
     "test:functional-ci": "cross-env NODE_ENV=staging npm run test:functional",
+    "test:functional:all": "npm-run-all -r -p start test:functional" ,
     "test:debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
     "build": "webpack",
-    "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report",
-    "npm-run-all": "npm"
+    "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report"
   },
   "engines": {
     "node": ">=8.4.0"
