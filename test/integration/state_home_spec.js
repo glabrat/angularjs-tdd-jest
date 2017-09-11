@@ -1,37 +1,26 @@
-import { routes } from "routes"
-import { TodoListComponent } from "components/todoList.component"
-import { TodoService } from "services/todo.service"
+import "index.js"
+import "angular-mocks"
 
 describe("TodoListComponent rendering and interaction on '/' base path", () => {
     const todosHttpResponse = require(`${__dirname}/../../stubs/todos_get.json`)
     const treeDOMBody = document.querySelectorAll("body")[0]
 
-    //Register once time all the ones involved in the scene on the angular module system
-    beforeAll(() => {
-        angular
-            .module("Test", [
-                "ui.router"
-            ])
-            .config(routes)
-            .constant("BASE_URL", "http://localhost:5000/api")
-            .component("todoList", TodoListComponent)
-            .service("TodoService", TodoService)
-    })
-    //Inject the "Test" module. (@TODO: Research why this module injection it's necessary en each test)
-    beforeEach(angular.mock.module("Test"))
+    //Inject the "App" module. (@TODO: Research why this module injection it's necessary en each test)
+    beforeEach(angular.mock.module("App"))
     //Configure the basic setup for each test
     beforeEach(inject(($rootScope, $compile, $location, $httpBackend) => {
         //@TODO: It's possible inject the $httpBackend once instead in each test?
+
         //1st Building the scene: register the http interceptor
         $httpBackend
             .whenGET(/.+\/todos/)
             .respond((method, url, data, headers, params) => {
                 return [200, todosHttpResponse]
             })
+
         //2nd Building the scene: render the root element of scene. In this case
         //it is the ui-router view
         const componentDOMelement = angular.element("<div ui-view></div>")
-        //@TODO: It's possible avoid this js-dom hack?
         document.body.appendChild(componentDOMelement[0])
         //compile to the tell angular that render the generated element
         //in the js-DOM
