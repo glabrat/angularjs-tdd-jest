@@ -8,7 +8,7 @@ describe("TodoListController", () => {
     })
 
     it("Should have a defined controller", () => {
-        expect(controller).toBeDefined()
+        expect(controller).toBeInstanceOf(TodoListController)
     })
 
     it("Should add a todo item", () => {
