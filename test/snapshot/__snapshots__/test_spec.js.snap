@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot Testing on AngularJS should be render a todo 1`] = `
+exports[`Snapshot Testing on AngularJS should be render a todo list 1`] = `
 "<div class=\\"todo-list ng-scope\\">
     <div class=\\"todo-item ng-scope\\" ng-repeat=\\"[ngExpression]\\">
         <label class=\\"ng-binding\\">
@@ -10,21 +10,6 @@ exports[`Snapshot Testing on AngularJS should be render a todo 1`] = `
     </div><div class=\\"todo-item ng-scope\\" ng-repeat=\\"[ngExpression]\\">
         <label class=\\"ng-binding\\">
             <input type=\\"checkbox\\" ng-model=\\"[ngExpression]\\" class=\\"ng-pristine ng-untouched ng-valid ng-empty\\"> Learn Machine Learning
-            <button class=\\"btn-delete-todo\\" ng-click=\\"[ngExpression]\\">x</button>
-        </label>
-    </div><div class=\\"todo-item ng-scope\\" ng-repeat=\\"[ngExpression]\\">
-        <label class=\\"ng-binding\\">
-            <input type=\\"checkbox\\" ng-model=\\"[ngExpression]\\" class=\\"ng-pristine ng-untouched ng-valid ng-not-empty\\"> Finish Medium article
-            <button class=\\"btn-delete-todo\\" ng-click=\\"[ngExpression]\\">x</button>
-        </label>
-    </div><div class=\\"todo-item ng-scope\\" ng-repeat=\\"[ngExpression]\\">
-        <label class=\\"ng-binding\\">
-            <input type=\\"checkbox\\" ng-model=\\"[ngExpression]\\" class=\\"ng-pristine ng-untouched ng-valid ng-empty\\"> Learn to play Jazz music
-            <button class=\\"btn-delete-todo\\" ng-click=\\"[ngExpression]\\">x</button>
-        </label>
-    </div><div class=\\"todo-item ng-scope\\" ng-repeat=\\"[ngExpression]\\">
-        <label class=\\"ng-binding\\">
-            <input type=\\"checkbox\\" ng-model=\\"[ngExpression]\\" class=\\"ng-pristine ng-untouched ng-valid ng-empty\\"> Build a experimental app using google A.I.
             <button class=\\"btn-delete-todo\\" ng-click=\\"[ngExpression]\\">x</button>
         </label>
     </div>

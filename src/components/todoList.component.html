@@ -2,7 +2,7 @@
     <div class="todo-item" ng-repeat="todo in $ctrl.todosList track by $index">
         <label>
             <input type="checkbox" ng-model="todo.completed"> {{todo.name}}
-            <button class="btn-delete-todo" ng-click="$ctrl.deleteTodo($index)">x</button>
+            <button class="btn-delete-todo" ng-click="$ctrl.deleteTodo($index)" >x</button>
         </label>
     </div>
 </div>
