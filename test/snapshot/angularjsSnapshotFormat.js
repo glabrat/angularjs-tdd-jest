@@ -22,7 +22,6 @@ const HTMLNormalizer = (element, injector) => {
                 }
     		});
 		});
-    console.log(element[0].outerHTML);
     return element[0];
 }
 export const angularjsSnapshotFormat = (html, scope) => {

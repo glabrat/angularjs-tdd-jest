@@ -1,7 +1,6 @@
 import TodoListTemplate from "components/todoList.component.html";
 
 describe("Snapshot Testing on AngularJS", () => {
-    const { angularjsSnapshotFormat } = require(`${__dirname}/angularjsSnapshotFormat`)
     const todos = [
         {
             "name": "Learn Programming using component based approach",
@@ -22,8 +21,6 @@ describe("Snapshot Testing on AngularJS", () => {
         scope.$ctrl = {
             todosList : todos
         };
-        const renderedElement = angularjsSnapshotFormat(TodoListTemplate, scope);
-
-        expect(renderedElement).toMatchSnapshot();
+        expect({el: TodoListTemplate, scope }).toMatchSnapshot();
     });
 });

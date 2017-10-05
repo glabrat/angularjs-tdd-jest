@@ -18,6 +18,7 @@
     "node": ">=8.4.0"
   },
   "jest": {
+    "snapshotSerializers": ["<rootDir>/test/snapshot/angularjs-serializer.js"],
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.html$": "html-loader-jest"
