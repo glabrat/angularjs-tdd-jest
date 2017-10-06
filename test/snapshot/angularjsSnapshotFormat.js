@@ -4,7 +4,6 @@ import { domAttributesList } from "./domAttributesList"
 import { removeHTMLComments } from "./utils"
 
 const HTMLNormalizer = (element) => {
-    const allChildrenNodes = removeHTMLComments(element[0].childNodes);
     const allChildrenElements = element[0].getElementsByTagName("*");
 
     [...allChildrenElements].forEach((child) => {
@@ -16,11 +15,16 @@ const HTMLNormalizer = (element) => {
 	});
     return element[0];
 }
-export const angularjsSnapshotFormat = (html, scope) => {
+
+export const angularjsSnapshotFormat = ({ template, $ctrl }) => {
     let el;
-    inject(($compile) => {
-        el = $compile(html)(scope);
+    inject(($compile, $rootScope) => {
+        const scope = $rootScope.$new();
+        scope.$ctrl = $ctrl;
+        el = $compile(template)(scope);
         scope.$digest();
+
+        removeHTMLComments(el[0].childNodes);
         el = HTMLNormalizer(el);
     });
     return el.outerHTML;

@@ -6,6 +6,6 @@ module.exports = {
       return true;
     },
     print(wrapper, serializer) {
-      return angularjsSnapshotFormat(wrapper.el, wrapper.scope);
+      return angularjsSnapshotFormat(wrapper);
     },
  };

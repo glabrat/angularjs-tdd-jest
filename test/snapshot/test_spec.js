@@ -11,16 +11,14 @@ describe("Snapshot Testing on AngularJS", () => {
             "completed": false
         }
     ];
-    let scope;
-
-    beforeEach(inject(($rootScope) => {
-        scope = $rootScope.$new();
-    }))
 
     it("should be render a todo list", () => {
-        scope.$ctrl = {
-            todosList : todos
+        const componentDefinition = {
+            template: TodoListTemplate,
+            $ctrl: {
+                todosList: todos
+            }
         };
-        expect({el: TodoListTemplate, scope }).toMatchSnapshot();
+        expect(componentDefinition).toMatchSnapshot();
     });
 });
