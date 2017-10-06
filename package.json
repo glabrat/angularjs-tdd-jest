@@ -1,7 +1,11 @@
 {
   "name": "angularjs-tdd-jest",
   "version": "0.3.0",
-  "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
+  "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpincheiraa/angularjs-tdd-jest"
+  },
   "scripts": {
     "build": "webpack",
     "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report",
