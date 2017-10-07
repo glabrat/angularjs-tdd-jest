@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Testing on AngularJS should be render a todo list 1`] = `
+<div class="todo-list ng-scope">
+    <div class="todo-item ng-scope" ng-repeat="[ngExpression]">
+        <label class="ng-binding">
+            <input type="checkbox" ng-model="[ngExpression]" class="ng-pristine ng-untouched ng-valid ng-not-empty"> Learn Programming using component based approach
+            <button class="btn-delete-todo" ng-click="[ngExpression]">x</button>
+        </label>
+    </div><div class="todo-item ng-scope" ng-repeat="[ngExpression]">
+        <label class="ng-binding">
+            <input type="checkbox" ng-model="[ngExpression]" class="ng-pristine ng-untouched ng-valid ng-empty"> Learn Machine Learning
+            <button class="btn-delete-todo" ng-click="[ngExpression]">x</button>
+        </label>
+    </div>
+</div>
+`;

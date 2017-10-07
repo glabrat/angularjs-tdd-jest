@@ -26,14 +26,6 @@
       "^.+\\.js$": "babel-jest",
       "^.+\\.html$": "html-loader-jest"
     },
-    "testURL": "http://localhost:3000",
-    "testMatch": [
-      "<rootDir>/test/**/*_spec.js"
-    ],
-    "collectCoverageFrom": [
-      "!src/**/index.js",
-      "src/**/*.js"
-    ],
     "coverageThreshold": {
       "global": {
         "branches": 80,
