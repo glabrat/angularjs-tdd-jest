@@ -1,22 +1,26 @@
 import TodoListTemplate from "components/todoList.component.html";
 
-describe("Snapshot Testing on AngularJS", () => {
+describe("Render todoList", () => {
     const todos = [
         {
             "name": "Learn Programming using component based approach",
             "completed": true
-        },
-        {
-            "name": "Learn Machine Learning",
-            "completed": false
         }
     ];
-
-    it("should be render a todo list", () => {
+    it("render a todo list with list of todos", () => {
         const componentDefinition = {
             template: TodoListTemplate,
             $ctrl: {
                 todosList: todos
+            }
+        };
+        expect(componentDefinition).toMatchSnapshot();
+    });
+    it("render a todo list without list", () => {
+        const componentDefinition = {
+            template: TodoListTemplate,
+            $ctrl: {
+                todosList: []
             }
         };
         expect(componentDefinition).toMatchSnapshot();
