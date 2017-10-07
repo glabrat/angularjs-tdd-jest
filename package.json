@@ -15,8 +15,9 @@
     "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
     "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
     "test:debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
-    "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
-    "test:functional-standalone": "npm-run-all -r -p start test:functional"
+    "test:functional": "cucumberjs --require __test__/functional/ --compiler js:babel-register __test__/functional/",
+    "test:functional-startup-delayed": "sleep 6; npm run test:functional",
+    "test:functional-standalone": "npm-run-all -r -p start test:functional-startup-delayed"
   },
   "engines": {
     "node": ">=8.4.0"
