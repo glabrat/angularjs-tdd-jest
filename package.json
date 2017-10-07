@@ -22,7 +22,9 @@
     "node": ">=8.4.0"
   },
   "jest": {
-    "snapshotSerializers": ["<rootDir>/test/snapshot/angularjs-serializer.js"],
+    "snapshotSerializers": [
+      "angularjs-jest-serializer"
+    ],
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.html$": "html-loader-jest"
@@ -50,6 +52,7 @@
   },
   "devDependencies": {
     "angular-mocks": "^1.6.4",
+    "angularjs-jest-serializer": "github:gpincheiraa/angularjs-jest-serializer",
     "babel-cli": "^6.7.7",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.9.1",
