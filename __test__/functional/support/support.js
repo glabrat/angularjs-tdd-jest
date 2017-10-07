@@ -17,15 +17,11 @@ function CustomWorld () {
             .build()
     }
 }
-function beforeScenarioHook() {
-    return this.driver.manage().window().maximize()
-}
 function afterScenarioHook() {
     return this.driver.quit()
 }
 defineSupportCode(({ setWorldConstructor, setDefaultTimeout, Before, After }) => {
   setDefaultTimeout(10 * 1000)
   setWorldConstructor(CustomWorld)
-  Before(beforeScenarioHook)
   After(afterScenarioHook)
 })
