@@ -26,7 +26,7 @@ describe("TodoService", () => {
     })
 
     it("Should have defined", () => {
-        expect(TodoServiceInstance).toBeDefined()
+        expect(TodoServiceInstance).toBeInstanceOf(TodoService)
     })
 
     it("Should be response a data object from response on getTodos method", async () => {
