@@ -1,0 +1,9 @@
+<form name="$ctrl.newtodoForm">
+    <p>
+        <label for="todo-name">Name</label>
+        <input id="todo-name" name="todoName" ng-model="$ctrl.newTodo.name" required>
+    </p>
+    <p>
+        <button id="todo-submit" ng-disabled="$ctrl.newtodoForm.$invalid">Save</button>
+    </p>
+</form>
