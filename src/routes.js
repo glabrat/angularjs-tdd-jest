@@ -13,4 +13,8 @@ export function routes($stateProvider, $locationProvider) {
                 todosList: TodoService => TodoService.getTodos()
             }
         })
+        .state("newtodo", {
+            url: "/newtodo",
+            component: "todoForm"
+        })
 }

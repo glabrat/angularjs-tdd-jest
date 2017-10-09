@@ -1,4 +1,4 @@
-import TodoListTemplate from "./todoList.component.html"
+import template from "./todoList.component.html"
 
 export class TodoListController {
     addTodo(todo){
@@ -12,7 +12,7 @@ export class TodoListController {
     }
 }
 export const TodoListComponent = {
-    template: TodoListTemplate,
+    template,
     controller: TodoListController,
     bindings: {
         todosList: "<"
