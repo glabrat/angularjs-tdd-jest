@@ -1,4 +1,4 @@
-import TodoListTemplate from "components/todoList.component.html";
+import TodoListTemplate from "../../src/components/todoList.component.html";
 
 describe("Render todoList", () => {
     const todos = [

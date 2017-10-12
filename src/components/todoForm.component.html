@@ -1,0 +1,4 @@
+<form name="$ctrl.todoForm" ng-submit="$ctrl.saveTodo($ctrl.todoForm)">
+    <input ng-model="$ctrl.newTodo.name" required>
+    <button type="submit" ng-disabled="$ctrl.todoForm.$invalid"></button>
+</form>

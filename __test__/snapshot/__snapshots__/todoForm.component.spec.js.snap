@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render todoForm newTodo form with name data empty and submit disabled 1`] = `
+<form name="$ctrl.todoForm" ng-submit="$ctrl.saveTodo($ctrl.todoForm)" class="ng-pristine ng-scope ng-invalid ng-invalid-required">
+    <input ng-model="[ngExpression]" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+    <button type="submit" ng-disabled="[ngExpression]" disabled="disabled"></button>
+</form>
+`;
+
+exports[`Render todoForm newTodo form with name data filled and submit enabled 1`] = `
+<form name="$ctrl.todoForm" ng-submit="$ctrl.saveTodo($ctrl.todoForm)" class="ng-pristine ng-valid ng-scope ng-valid-required">
+    <input ng-model="[ngExpression]" required="" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
+    <button type="submit" ng-disabled="[ngExpression]"></button>
+</form>
+`;
