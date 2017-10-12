@@ -1,42 +1,24 @@
-import "index.js"
-import "angular-mocks"
+import "../../src/index";
+import "angular-mocks";
+import { jsdomUIRouterScenario } from "./jsdom-ui-router-scenario";
+import todosHttpResponse from "../../__stubs__/todos_get.json";
 
-describe("TodoListComponent rendering and interaction on '/' base path", () => {
-    const todosHttpResponse = require(`${__dirname}/../../stubs/todos_get.json`)
-    const treeDOMBody = document.querySelectorAll("body")[0]
+describe("integration on 'home' state", () => {
+    const treeDOMBody = document.querySelectorAll("body")[0];
 
-    //Inject the "App" module. (@TODO: Research why this module injection it's necessary en each test)
-    beforeEach(angular.mock.module("App"))
-    //Configure the basic setup for each test
-    beforeEach(inject(($rootScope, $compile, $location, $httpBackend) => {
-        //@TODO: It's possible inject the $httpBackend once instead in each test?
-
-        //1st Building the scene: register the http interceptor
+    beforeEach(angular.mock.module("App"));
+    beforeEach(jsdomUIRouterScenario.build);
+    beforeEach(inject(($state, $httpBackend) => {
         $httpBackend
             .whenGET(/.+\/todos/)
             .respond((method, url, data, headers, params) => {
                 return [200, todosHttpResponse]
             })
 
-        //2nd Building the scene: render the root element of scene. In this case
-        //it is the ui-router view
-        const componentDOMelement = angular.element("<div ui-view></div>")
-        document.body.appendChild(componentDOMelement[0])
-        //compile to the tell angular that render the generated element
-        //in the js-DOM
-        $compile(componentDOMelement)($rootScope.$new())
-
-        //3rd Building the scene: go to the root location.
-        $location.url("/")
-        //Because in the root location exists a http resolution involved
-        //(the resolve configuration for the "home" state)
-        $httpBackend.flush()
-    }))
-
-    //After each test clean the ui-view
-    afterEach(() => {
-        treeDOMBody.querySelectorAll("div[ui-view]")[0].remove()
-    })
+        $state.go("home");
+        $httpBackend.flush();
+    }));
+    afterEach(jsdomUIRouterScenario.clean);
 
     it("Should be render a todo list based on the httpResponse", () => {
         const todosHTMLNodeList = treeDOMBody.querySelectorAll(".todo-item")
@@ -80,6 +62,5 @@ describe("TodoListComponent rendering and interaction on '/' base path", () => {
         todoNewCheckedState = targetTodoCheckbox.checked
 
         expect(todoNewCheckedState).toEqual(!todoInitialCheckedState)
-    })
-
-})
+    });
+});

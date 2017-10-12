@@ -10,7 +10,14 @@ export function routes($stateProvider, $locationProvider) {
             url: "/",
             component: "todoList",
             resolve: {
-                todosList: TodoService => TodoService.getTodos()
+                todosList: TodoService => {
+                    debugger;
+                    return TodoService.getTodos()
+                }
             }
+        })
+        .state("newtodo", {
+            url: "/newtodo",
+            component: "todoForm"
         })
 }
