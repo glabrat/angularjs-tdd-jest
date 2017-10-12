@@ -1,25 +1,15 @@
-import "../../src/index.js"
-import "angular-mocks"
-import { jsdomUIRouterScenario } from "./jsdom-ui-router-scenario";
+import "../../src/index";
+import "angular-mocks";
+
 import todosHttpResponse from "../../__stubs__/todos_get.json";
 
 describe("integration on 'home' state", () => {
+    const treeDOMBody = document.querySelectorAll("body")[0];
 
     beforeEach(angular.mock.module("App"));
-    beforeEach(jsdomUIRouterScenario.build);
-    afterEach(jsdomUIRouterScenario.clean);
 
-    it("should call TodoService.getTodos method when the 'home' state is called", inject(($rootScope, $state, TodoService) => {
+    it("should call TodoService.getTodos method when the 'home' state is called", inject(($state, $httpBackend, TodoService) => {
         const getTodosSpy = jest.spyOn(TodoService, 'getTodos');
-
-        $state.go("home");
-        $rootScope.$digest();
-
-        expect(getTodosSpy).toHaveBeenCalled();
-    }));
-
-    it("Should be render a todo list based on the httpResponse", inject(($state, $httpBackend) => {
-        const todosHttpResponseLength = todosHttpResponse.todos.length;
 
         $httpBackend
             .whenGET(/.+\/todos/)
@@ -30,6 +20,7 @@ describe("integration on 'home' state", () => {
         $state.go("home");
         $httpBackend.flush();
 
-        expect(document.querySelectorAll(".todo-item").length).toBe(todosHttpResponseLength);
+        expect(getTodosSpy).toHaveBeenCalled();
     }));
+
 });
