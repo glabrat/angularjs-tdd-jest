@@ -1,6 +1,9 @@
 import template from "./todoList.component.html"
 
 export class TodoListController {
+    constructor() {
+        this.todosList = [];
+    }
     addTodo(todo){
         this.todosList.push(todo)
     }
