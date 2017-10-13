@@ -1,4 +1,4 @@
-import { TodoListController } from "components/todoList.component"
+import { TodoListController } from "../../src/components/todoList.component"
 
 describe("TodoListController", () => {
     let controller

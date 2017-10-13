@@ -1,6 +1,9 @@
-import TodoListTemplate from "./todoList.component.html"
+import template from "./todoList.component.html"
 
 export class TodoListController {
+    constructor() {
+        this.todosList = [];
+    }
     addTodo(todo){
         this.todosList.push(todo)
     }
@@ -12,7 +15,7 @@ export class TodoListController {
     }
 }
 export const TodoListComponent = {
-    template: TodoListTemplate,
+    template,
     controller: TodoListController,
     bindings: {
         todosList: "<"
