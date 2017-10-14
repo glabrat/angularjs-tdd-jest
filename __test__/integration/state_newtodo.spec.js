@@ -1,15 +1,16 @@
 import "../../src/index";
 import "angular-mocks";
-import { jsdomUIRouterScenario } from "./jsdom-ui-router-scenario";
+import { uirouterScenario } from "angularjs-uirouter-integration-scenarios";
 
 describe("New Todo rendering and interaction on '/newtodo' path", () => {
     const treeDOMBody = document.querySelectorAll("body")[0];
+    const stateOptions = { stateName: "newtodo" };
 
     beforeEach(angular.mock.module("App"));
-    beforeEach(jsdomUIRouterScenario.build());
-    beforeEach(jsdomUIRouterScenario.loadState("newtodo"));
+    beforeEach(uirouterScenario.build());
+    beforeEach(uirouterScenario.loadState(stateOptions));
 
-    afterEach(jsdomUIRouterScenario.clean());
+    afterEach(uirouterScenario.clean());
 
     it("should disable by default the submit button", () => {
         const submitButton = treeDOMBody.querySelector("#todo-submit");

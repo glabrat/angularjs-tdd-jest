@@ -1,4 +1,4 @@
-import '@uirouter/angularjs'
+import "@uirouter/angularjs";
 
 export function routes($stateProvider, $locationProvider) {
     $locationProvider.html5Mode({
