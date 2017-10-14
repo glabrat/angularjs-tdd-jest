@@ -10,7 +10,7 @@
     "build": "webpack",
     "check:coverage": "npm test && http-server -so -p 9000 coverage/lcov-report",
     "server": "webpack-dev-server",
-    "start": "npm-run-all -p __stubs__ server",
+    "start": "npm-run-all -p stubs server",
     "stubs": "stubby -w -d __stubs__/fakeserver.yml -s 5000",
     "tdd": "jest --watch --verbose",
     "test": "jest --coverage --verbose",

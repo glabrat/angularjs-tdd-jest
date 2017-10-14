@@ -1,4 +1,13 @@
-<form name="$ctrl.todoForm" ng-submit="$ctrl.saveTodo($ctrl.todoForm)">
-    <input ng-model="$ctrl.newTodo.name" required>
-    <button type="submit" ng-disabled="$ctrl.todoForm.$invalid"></button>
+<form name="$ctrl.newtodoForm">
+    <p>
+        <label for="todo-name">Name</label>
+        <input id="todo-name" name="todoName" ng-model="$ctrl.newTodo.name" required>
+    </p>
+    <p>
+        <label for="todo-description">Name</label>
+        <input id="todo-description" name="todoDescription" ng-model="$ctrl.newTodo.description">
+    </p>
+    <p>
+        <button id="todo-submit" ng-disabled="$ctrl.newtodoForm.$invalid">Save</button>
+    </p>
 </form>
