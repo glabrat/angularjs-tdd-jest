@@ -1,24 +1,21 @@
 import "../../src/index";
 import "angular-mocks";
-import { jsdomUIRouterScenario } from "./jsdom-ui-router-scenario";
+import { uirouterScenario } from "angularjs-uirouter-integration-scenarios";
 import todosHttpResponse from "../../__stubs__/todos_get.json";
 
 describe("integration on 'home' state", () => {
     const treeDOMBody = document.querySelectorAll("body")[0];
-
+    const stateOptions = {
+        stateName: "home",
+        backend: {
+            get: { url: /.+\/todos/, response: todosHttpResponse }
+        }
+    };
     beforeEach(angular.mock.module("App"));
-    beforeEach(jsdomUIRouterScenario.build);
-    beforeEach(inject(($state, $httpBackend) => {
-        $httpBackend
-            .whenGET(/.+\/todos/)
-            .respond((method, url, data, headers, params) => {
-                return [200, todosHttpResponse]
-            })
+    beforeEach(uirouterScenario.build());
+    beforeEach(uirouterScenario.loadState(stateOptions));
 
-        $state.go("home");
-        $httpBackend.flush();
-    }));
-    afterEach(jsdomUIRouterScenario.clean);
+    afterEach(uirouterScenario.clean);
 
     it("Should be render a todo list based on the httpResponse", () => {
         const todosHTMLNodeList = treeDOMBody.querySelectorAll(".todo-item")

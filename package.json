@@ -1,6 +1,6 @@
 {
   "name": "angularjs-tdd-jest",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com>",
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
   "devDependencies": {
     "angular-mocks": "^1.6.4",
     "angularjs-jest-serializer": "^0.2.0",
+    "angularjs-uirouter-integration-scenarios": "^0.2.0",
     "babel-cli": "^6.7.7",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.9.1",

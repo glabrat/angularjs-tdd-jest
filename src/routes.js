@@ -1,4 +1,4 @@
-import '@uirouter/angularjs'
+import "@uirouter/angularjs";
 
 export function routes($stateProvider, $locationProvider) {
     $locationProvider.html5Mode({
@@ -10,10 +10,7 @@ export function routes($stateProvider, $locationProvider) {
             url: "/",
             component: "todoList",
             resolve: {
-                todosList: TodoService => {
-                    debugger;
-                    return TodoService.getTodos()
-                }
+                todosList: TodoService => TodoService.getTodos()
             }
         })
         .state("newtodo", {
