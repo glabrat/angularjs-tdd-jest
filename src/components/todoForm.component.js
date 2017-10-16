@@ -7,7 +7,7 @@ export class TodoFormController {
             description: ""
         };
         this.errorMessages = {
-            name: { required: "El campo nombre es obligatorio"}
+            name: { required: "El campo nombre es obligatorio" }
         };
     }
 }

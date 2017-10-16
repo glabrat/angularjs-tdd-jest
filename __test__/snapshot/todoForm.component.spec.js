@@ -23,4 +23,25 @@ describe("Render todoForm", () => {
         };
         expect(componentDefinition).toMatchSnapshot();
     });
+    it("newTodo form with error message displayed", () => {
+        const componentDefinition = {
+            template,
+            $ctrl: {
+                newTodo: {
+                    name: ""
+                },
+                newtodoForm: {
+                    $invalid: true,
+                    todoName: {
+                        $touched: true,
+                        $error: { required: true }
+                    }
+                },
+                errorMessages : {
+                    name: { required: "El campo nombre es obligatorio" }
+                }
+            }
+        };
+        expect(componentDefinition).toMatchSnapshot();
+    });
 });
