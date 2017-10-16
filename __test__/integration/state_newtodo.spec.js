@@ -28,4 +28,18 @@ describe("New Todo rendering and interaction on '/newtodo' path", () => {
 
         expect(submitButton.disabled).toBe(false);
     });
+
+    it("should show a error message if the todoName input isn't filled", () => {
+        const inputElement = treeDOMBody.querySelector("input#todo-name");
+        const errormessageElement = treeDOMBody.querySelector("#todo-name-error");
+        const expectedErrorMessage = "El campo nombre es obligatorio";
+
+        expect(errormessageElement.classList.contains("ng-hide")).toBe(true);
+
+        inputElement.focus();
+        inputElement.blur();
+
+        expect(errormessageElement.classList.contains("ng-hide")).toBe(false);
+        expect(errormessageElement.textContent.trim()).toEqual(expectedErrorMessage);
+    });
 });

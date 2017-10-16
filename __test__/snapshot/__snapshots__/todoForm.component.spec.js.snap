@@ -6,6 +6,9 @@ exports[`Render todoForm newTodo form with name data empty and submit disabled 1
         <label for="todo-name">Name</label>
         <input id="todo-name" name="todoName" ng-model="[ngExpression]" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
     </p>
+    <p id="todo-name-error" ng-show="[ngExpression]" class="ng-binding ng-hide">
+	    
+	</p>
     <p>
         <label for="todo-description">Description</label>
         <input id="todo-description" name="todoDescription" ng-model="[ngExpression]" class="ng-pristine ng-untouched ng-valid ng-empty">
@@ -22,6 +25,9 @@ exports[`Render todoForm newTodo form with name data filled and submit enabled 1
         <label for="todo-name">Name</label>
         <input id="todo-name" name="todoName" ng-model="[ngExpression]" required="" class="ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
     </p>
+    <p id="todo-name-error" ng-show="[ngExpression]" class="ng-binding ng-hide">
+	    
+	</p>
     <p>
         <label for="todo-description">Description</label>
         <input id="todo-description" name="todoDescription" ng-model="[ngExpression]" class="ng-pristine ng-untouched ng-valid ng-empty">

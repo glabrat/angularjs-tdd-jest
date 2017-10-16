@@ -3,6 +3,9 @@
         <label for="todo-name">Name</label>
         <input id="todo-name" name="todoName" ng-model="$ctrl.newTodo.name" required>
     </p>
+    <p id="todo-name-error" ng-show="$ctrl.newtodoForm.todoName.$touched && $ctrl.newtodoForm.todoName.$error.required">
+	    {{$ctrl.errorMessages.name.required}}
+	</p>
     <p>
         <label for="todo-description">Description</label>
         <input id="todo-description" name="todoDescription" ng-model="$ctrl.newTodo.description">
