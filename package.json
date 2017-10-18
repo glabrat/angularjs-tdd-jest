@@ -18,7 +18,8 @@
     "test:debug": "node --inspect --inspect-brk node_modules/.bin/jest -i",
     "test:functional": "cucumberjs --require __test__/functional/ --compiler js:babel-register __test__/functional/",
     "test:functional-startup-delayed": "sleep 6; npm run test:functional",
-    "test:functional-standalone": "npm-run-all -r -p start test:functional-startup-delayed"
+    "test:functional-standalone": "npm-run-all -r -p start test:functional-startup-delayed",
+    "heroku-postbuild": "webpack -p --config webpack.config.js --progress"
   },
   "engines": {
     "node": ">=8.4.0"
