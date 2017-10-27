@@ -19,7 +19,7 @@
     "test:functional": "cucumberjs --require __test__/functional/ --compiler js:babel-register __test__/functional/",
     "test:functional-startup-delayed": "sleep 6; npm run test:functional",
     "test:functional-standalone": "npm-run-all -r -p start test:functional-startup-delayed",
-    "heroku-postbuild": "webpack -p --config webpack.dev.js --progress"
+    "postinstall": "NODE_ENV=development webpack -p --config webpack.dev.js --progress"
   },
   "engines": {
     "node": ">=8.4.0"
