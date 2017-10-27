@@ -1,50 +1,44 @@
 {
   "name": "angularjs-tdd-jest",
-  "version": "0.3.0",
-  "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com> (https://github.com/gpincheiraa/angularjs-tdd-jest)",
+  "version": "0.5.0",
+  "author": "Gonzalo Pincheira A. <g.pincheira.a@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gpincheiraa/angularjs-tdd-jest"
+  },
   "scripts": {
     "build": "webpack",
-    "check-coverage": "npm test | http-server -so -p 9000 coverage/lcov-report",
+    "check:coverage": "npm test && http-server -so -p 9000 coverage/lcov-report",
     "server": "webpack-dev-server",
     "start": "npm-run-all -p stubs server",
-    "stubs": "stubby -w -d stubs/fakeserver.yml -s 5000",
-    "tdd": "cross-env NODE_PATH=./src jest --watch --verbose",
-    "test": "cross-env NODE_PATH=./src jest --coverage --verbose",
-    "test:debug": "cross-env NODE_PATH=./src node --inspect --inspect-brk node_modules/.bin/jest -i",
-    "test:functional": "cucumberjs --require test/functional/ --compiler js:babel-register test/functional/",
-    "test:functional-standalone": "npm-run-all -r -p start test:functional"
+    "stubs": "stubby -w -d __stubs__/fakeserver.yml -s 5000",
+    "tdd": "jest --watch --verbose",
+    "test": "jest --coverage --verbose",
+    "test:debug": "node --inspect --inspect-brk node_modules/.bin/jest -i",
+    "test:functional": "cucumberjs --require __test__/functional/ --compiler js:babel-register __test__/functional/",
+    "test:functional-startup-delayed": "sleep 6; npm run test:functional",
+    "test:functional-standalone": "npm-run-all -r -p start test:functional-startup-delayed"
   },
   "engines": {
     "node": ">=8.4.0"
   },
   "jest": {
+    "snapshotSerializers": [
+      "angularjs-jest-serializer"
+    ],
     "transform": {
       "^.+\\.js$": "babel-jest",
       "^.+\\.html$": "html-loader-jest"
-    },
-    "testURL": "http://localhost:3000",
-    "testMatch": [
-      "<rootDir>/test/**/*_spec.js"
-    ],
-    "collectCoverageFrom": [
-      "!src/**/index.js",
-      "src/**/*.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 80,
-        "functions": 90,
-        "lines": 90,
-        "statements": 90
-      }
     }
   },
   "dependencies": {
-    "@uirouter/angularjs": "^1.0.6",
+    "@uirouter/angularjs": "^1.0.7",
     "angular": "^1.5.6"
   },
   "devDependencies": {
     "angular-mocks": "^1.6.4",
+    "angularjs-jest-serializer": "^0.2.0",
+    "angularjs-uirouter-integration-scenarios": "^0.2.0",
     "babel-cli": "^6.7.7",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.9.1",
@@ -52,17 +46,16 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-3": "^6.24.1",
-    "chromedriver": "^2.31.0",
-    "cross-env": "^5.0.0",
-    "cucumber": "^3.0.0",
+    "chromedriver": "^2.33.0",
+    "cucumber": "^3.0.4",
     "html-loader": "^0.5.1",
-    "html-loader-jest": "github:gpincheiraa/html-loader-jest",
+    "html-loader-jest": "^0.2.0",
     "http-server": "^0.10.0",
     "jest-cli": "^20.0.1",
     "npm-run-all": "^4.1.1",
-    "selenium-webdriver": "^3.5.0",
+    "selenium-webdriver": "^3.6.0",
     "stubby": "^4.0.0",
-    "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.7.1"
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
   }
 }

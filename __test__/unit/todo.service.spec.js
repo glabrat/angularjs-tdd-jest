@@ -1,4 +1,4 @@
-import { TodoService } from "services/todo.service"
+import { TodoService } from "../../src/services/todo.service"
 
 describe("TodoService", () => {
     let TodoServiceInstance
@@ -26,7 +26,7 @@ describe("TodoService", () => {
     })
 
     it("Should have defined", () => {
-        expect(TodoServiceInstance).toBeDefined()
+        expect(TodoServiceInstance).toBeInstanceOf(TodoService)
     })
 
     it("Should be response a data object from response on getTodos method", async () => {

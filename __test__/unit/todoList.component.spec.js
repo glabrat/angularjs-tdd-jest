@@ -1,4 +1,4 @@
-import { TodoListController } from "components/todoList.component"
+import { TodoListController } from "../../src/components/todoList.component"
 
 describe("TodoListController", () => {
     let controller
@@ -8,7 +8,7 @@ describe("TodoListController", () => {
     })
 
     it("Should have a defined controller", () => {
-        expect(controller).toBeDefined()
+        expect(controller).toBeInstanceOf(TodoListController)
     })
 
     it("Should add a todo item", () => {
