@@ -7,7 +7,7 @@
     "url": "https://github.com/gpincheiraa/angularjs-tdd-jest"
   },
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.dev.js",
     "check:coverage": "npm test && http-server -so -p 9000 coverage/lcov-report",
     "server": "webpack-dev-server --open --config webpack.dev.js",
     "snapshot:update": "jest --updateSnapshot",
@@ -19,7 +19,7 @@
     "test:functional": "cucumberjs --require __test__/functional/ --compiler js:babel-register __test__/functional/",
     "test:functional-startup-delayed": "sleep 6; npm run test:functional",
     "test:functional-standalone": "npm-run-all -r -p start test:functional-startup-delayed",
-    "heroku-postbuild": "webpack -p --config webpack.prod.js --progress"
+    "heroku-postbuild": "webpack -p --config webpack.dev.js --progress"
   },
   "engines": {
     "node": ">=8.4.0"
