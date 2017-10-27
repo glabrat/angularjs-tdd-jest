@@ -2,20 +2,6 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports =(common, {
-    entry: [
-      "./src/index.js"
-    ],
-    output: {
-        path: __dirname + "/dist",
-        filename: "index.bundle.js"
-    },
-    module: {
-        rules: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
-            { test: /\.css$/, loader: "style-loader!css-loader" },
-            { test: /\.html$/, loader: "html-loader" }
-        ]
-    },
     devtool: "eval-source-map",
     devServer: {
         filename: "index.bundle.js",
